@@ -24,12 +24,13 @@ class Recipe:
         newIngredients=[]
 
         for i in self._ingredients:
-            newIngredient = Ingredient(i.name, i.quantity * ratio, i.unit)
+            newIngredient = Ingredient(i._name, i.quantity * ratio, i._unit)
             newIngredients.append(newIngredient)
         return Recipe(self._title, newIngredients)
 
     def __len__(self):
-        return len(set(self._ingredients))
+        unique = {(i._name, i._unit) for i in self._ingredients}
+        return len(unique)
     def __str__(self):
         result = self._title + ":\n"
         for i in self._ingredients:
