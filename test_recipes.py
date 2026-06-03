@@ -49,7 +49,7 @@ def test_addIngredient1():
     recipe = Recipe("Салат", [flour, tomato])
     recipe.add_ingredient(tomato)
     assert tomato.quantity==400.0
-def test_scale():
+def test_scale0():
     flour = Ingredient("Кукурузный крахмал", 30.0, "г")
     tomato = Ingredient("Помидоры", 200.0, "г")
     recipe = Recipe("Салат", [flour, tomato])
@@ -58,6 +58,11 @@ def test_scale():
     assert newRecipe._ingredients[0].quantity == 60.0
     assert newRecipe._ingredients[1].quantity == 400.0
     assert recipe._ingredients[0].quantity == 30.0
+def test_scale1():
+    flour = Ingredient("Кукурузный крахмал", 30.0, "г")
+    recipe = Recipe("Салат", [flour])
+    with pytest.raises(ValueError):
+        recipe.scale(-0.5)
 
 def test_len():
     flour = Ingredient("Кукурузный крахмал", 30.0, "г")
