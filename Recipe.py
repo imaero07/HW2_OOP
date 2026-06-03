@@ -1,4 +1,3 @@
-from idlelib.debugobj_r import remote_object_tree_item
 
 from Ingredient import Ingredient
 class Recipe:
