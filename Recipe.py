@@ -20,6 +20,8 @@ class Recipe:
             return True
         else: return False
     def scale(self, ratio: float):
+        if not self.is_valid_ratio(ratio):
+            raise ValueError("Ошибка: требуется ввести положительное число")
         newIngredients=[]
 
         for i in self._ingredients:
