@@ -11,7 +11,7 @@ class Ingredient:
     @quantity.setter
     def quantity(self, value):
 
-        if value<0:
+        if value<=0:
             raise ValueError("Количество должно быть положительным")
         self._quantity = float(value)
 
