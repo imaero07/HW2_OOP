@@ -39,5 +39,17 @@ def test_len():
     recipe = Recipe("Салат", [flour, tomato, eggplant])
     assert len(recipe) == 3
 
+def test__str__():
+    flour = Ingredient("Кукурузный крахмал", 30.0, "г")
+    tomato = Ingredient("Помидоры", 200.0, "г")
+    eggplant = Ingredient("Баклажан", 300.0, "г")
+    recipe = Recipe("Салат", [flour, tomato, eggplant])
+    assert str(recipe) == (
+        "Салат:\n"
+        "Кукурузный крахмал: 30.0 г\n"
+        "Помидоры: 200.0 г\n"
+        "Баклажан: 300.0 г\n"
+    )
+
 
 
