@@ -18,7 +18,7 @@ class ShoppingList:
     def get_list(self) -> dict:
         final_list = {}
         for ingredient, recipeTitle in self._items[:]:
-            key = (ingredient.name, ingredient.unit)
+            key = (ingredient._name, ingredient._unit)
             if key in final_list:
                 final_list[key]['quantity'] += ingredient.quantity
             else:
@@ -26,9 +26,9 @@ class ShoppingList:
                     'quantity': ingredient.quantity
                 }
         result = []
-        for (name, unit), quantity in final_list.items():
-            result.append(Ingredient(name, quantity, unit))
-        result.sort(key=lambda x: x.name)
+        for (name, unit), data in final_list.items():
+            result.append(Ingredient(name, data['quantity'], unit))
+        result.sort(key=lambda x: x._name)
 
         return result
     def __add__(self, other: 'ShoppingList'):
