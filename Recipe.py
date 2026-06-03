@@ -1,0 +1,33 @@
+from idlelib.debugobj_r import remote_object_tree_item
+
+from Ingredient import Ingredient
+class Recipe:
+    def __init__(self, title, ingredients):
+        self._title = title
+        self._ingredients = list(ingredients)
+
+    def add_ingredient(self, ingredient: Ingredient):
+        if ingredient in self._ingredients:
+            for i in self._ingredients:
+                if i == ingredient:
+                    i.quantity += ingredient.quantity
+                    break
+        else:
+            self._ingredients.append(ingredient)
+
+    @staticmethod
+    def is_valid_ratio(ratio):
+        if ratio>0:
+            return True
+        else: return False
+    def scale(self, ratio: float):
+        for i in self._ingredients:
+            i.quantity*=ratio
+
+    def __len__(self):
+        return len(set(self._ingredients))
+    def __str__(self):
+        result = self._title + ":\n"
+        for i in self._ingredients:
+            result += str(i) + "\n"
+        return result
