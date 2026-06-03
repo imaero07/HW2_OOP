@@ -16,7 +16,7 @@ class Recipe:
 
     @staticmethod
     def is_valid_ratio(ratio):
-        if ratio>0:
+        if isinstance(ratio, (int, float))  and ratio>0:
             return True
         else: return False
     def scale(self, ratio: float):
