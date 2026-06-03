@@ -6,3 +6,10 @@
 2) cd HW2_OOP
 3) pip install -r requirements.txt
 4) pytest
+
+Запуск тестов:
+pytest
+
+выполнила:
+Замалеева Амира  
+Учебная группа: ББИ2503
