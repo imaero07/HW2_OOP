@@ -21,8 +21,12 @@ class Recipe:
             return True
         else: return False
     def scale(self, ratio: float):
+        newIngredients=[]
+
         for i in self._ingredients:
-            i.quantity*=ratio
+            newIngredient = Ingredient(i.name, i.quantity * ratio, i.unit)
+            newIngredients.append(newIngredient)
+        return Recipe(self._title, newIngredients)
 
     def __len__(self):
         return len(set(self._ingredients))
